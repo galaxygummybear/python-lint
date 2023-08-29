@@ -46,16 +46,29 @@ Or you can use this configurations:
 
 ```bash
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
+  - repo: https://github.com/psf/black
+    rev: 23.7.0
     hooks:
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: trailing-whitespace
--   repo: https://github.com/psf/black
-    rev: 22.10.0
+      - id: black
+        language_version: python3
+        args:
+          - "--preview"
+  - repo: https://github.com/PyCQA/autoflake
+    rev: v2.2.0
     hooks:
-    -   id: black
+      - id: autoflake
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+  - repo: https://github.com/PyCQA/docformatter
+    rev: v1.7.5
+    hooks:
+      - id: docformatter
+  - repo: https://github.com/pycqa/pydocstyle
+    rev: 6.3.0
+    hooks:
+      - id: pydocstyle
 ```
 
 Once you have this configurations, then install the git hook scripts, using :
